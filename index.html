@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENIGMA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="app-header">
+        <h1>ENIGMA CIPHER MACHINE</h1>
+    </header>
+    <div class="content">
+        <!-- 1. Rotors -->
+        <div class="rotor-setup">
+            <div class="rotor-column">
+                <select id="select2" onchange="setRotorType(2, this.value)">
+                    <option value="0">I</option>
+                    <option value="1">II</option>
+                    <option value="2">III</option>
+                    <option value="3">IV</option>
+                    <option value="4">V</option>
+                </select>
+                <div class="control-row">
+                    <div class="control-group">
+                        <button onclick="changeRingSetting(2, 1)">+</button>
+                        <div class="digit small" id="ring2">A</div>
+                        <button onclick="changeRingSetting(2, -1)">-</button>
+                    </div>
+                    <div class="control-group">
+                        <button onclick="changeRotorPos(2, 1)">+</button>
+                        <div class="digit" id="pos2">A</div>
+                        <button onclick="changeRotorPos(2, -1)">-</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rotor-column">
+                <select id="select1" onchange="setRotorType(1, this.value)">
+                    <option value="0">I</option>
+                    <option value="1" selected>II</option>
+                    <option value="2">III</option>
+                    <option value="3">IV</option>
+                    <option value="4">V</option>
+                </select>
+                <div class="control-row">
+                    <div class="control-group">
+                        <button onclick="changeRingSetting(1, 1)">+</button>
+                        <div class="digit small" id="ring1">A</div>
+                        <button onclick="changeRingSetting(1, -1)">-</button>
+                    </div>
+                    <div class="control-group">
+                        <button onclick="changeRotorPos(1, 1)">+</button>
+                        <div class="digit" id="pos1">A</div>
+                        <button onclick="changeRotorPos(1, -1)">-</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rotor-column">
+                <select id="select0" onchange="setRotorType(0, this.value)">
+                    <option value="0" selected>I</option>
+                    <option value="1">II</option>
+                    <option value="2">III</option>
+                    <option value="3">IV</option>
+                    <option value="4">V</option>
+                </select>
+                <div class="control-row">
+                    <div class="control-group">
+                        <button onclick="changeRingSetting(0, 1)">+</button>
+                        <div class="digit small" id="ring0">A</div>
+                        <button onclick="changeRingSetting(0, -1)">-</button>
+                    </div>
+                    <div class="control-group">
+                        <button onclick="changeRotorPos(0, 1)">+</button>
+                        <div class="digit" id="pos0">A</div>
+                        <button onclick="changeRotorPos(0, -1)">-</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Lampboard -->
+        <div class="lampboard">
+            <div class="row">
+                <div id="_Q" class="lamp">Q</div>
+                <div id="_W" class="lamp">W</div>
+                <div id="_E" class="lamp">E</div>
+                <div id="_R" class="lamp">R</div>
+                <div id="_T" class="lamp">T</div>
+                <div id="_Z" class="lamp">Z</div>
+                <div id="_U" class="lamp">U</div>
+                <div id="_I" class="lamp">I</div>
+                <div id="_O" class="lamp">O</div>
+            </div>
+            <div class="row">
+                <div id="_A" class="lamp">A</div>
+                <div id="_S" class="lamp">S</div>
+                <div id="_D" class="lamp">D</div>
+                <div id="_F" class="lamp">F</div>
+                <div id="_G" class="lamp">G</div>
+                <div id="_H" class="lamp">H</div>
+                <div id="_J" class="lamp">J</div>
+                <div id="_K" class="lamp">K</div>
+            </div>
+            <div class="row">
+                <div id="_P" class="lamp">P</div>
+                <div id="_Y" class="lamp">Y</div>
+                <div id="_X" class="lamp">X</div>
+                <div id="_C" class="lamp">C</div>
+                <div id="_V" class="lamp">V</div>
+                <div id="_B" class="lamp">B</div>
+                <div id="_N" class="lamp">N</div>
+                <div id="_M" class="lamp">M</div>
+                <div id="_L" class="lamp">L</div>
+            </div>
+        </div>
+
+        <!-- 3. Keyboard -->
+        <div class="keyboard">
+            <div class="row">
+                <button id="Q" onclick="keyPress(this)">Q</button>
+                <button id="W" onclick="keyPress(this)">W</button>
+                <button id="E" onclick="keyPress(this)">E</button>
+                <button id="R" onclick="keyPress(this)">R</button>
+                <button id="T" onclick="keyPress(this)">T</button>
+                <button id="Z" onclick="keyPress(this)">Z</button>
+                <button id="U" onclick="keyPress(this)">U</button>
+                <button id="I" onclick="keyPress(this)">I</button>
+                <button id="O" onclick="keyPress(this)">O</button>
+            </div>
+            <div class="row">
+                <button id="A" onclick="keyPress(this)">A</button>
+                <button id="S" onclick="keyPress(this)">S</button>
+                <button id="D" onclick="keyPress(this)">D</button>
+                <button id="F" onclick="keyPress(this)">F</button>
+                <button id="G" onclick="keyPress(this)">G</button>
+                <button id="H" onclick="keyPress(this)">H</button>
+                <button id="J" onclick="keyPress(this)">J</button>
+                <button id="K" onclick="keyPress(this)">K</button>
+            </div>
+            <div class="row">
+                <button id="P" onclick="keyPress(this)">P</button>
+                <button id="Y" onclick="keyPress(this)">Y</button>
+                <button id="X" onclick="keyPress(this)">X</button>
+                <button id="C" onclick="keyPress(this)">C</button>
+                <button id="V" onclick="keyPress(this)">V</button>
+                <button id="B" onclick="keyPress(this)">B</button>
+                <button id="N" onclick="keyPress(this)">N</button>
+                <button id="M" onclick="keyPress(this)">M</button>
+                <button id="L" onclick="keyPress(this)">L</button>
+            </div>
+        </div>
+
+        <!-- 4. Plugboard -->
+        <div class="plugboard-section">
+            <div class="plug-row">
+                <div id="plug_Q" class="plug" onclick="plugClick('Q')" onmouseenter="plugHover('Q', true)"
+                    onmouseleave="plugHover('Q', false)">Q</div>
+                <div id="plug_W" class="plug" onclick="plugClick('W')" onmouseenter="plugHover('W', true)"
+                    onmouseleave="plugHover('W', false)">W</div>
+                <div id="plug_E" class="plug" onclick="plugClick('E')" onmouseenter="plugHover('E', true)"
+                    onmouseleave="plugHover('E', false)">E</div>
+                <div id="plug_R" class="plug" onclick="plugClick('R')" onmouseenter="plugHover('R', true)"
+                    onmouseleave="plugHover('R', false)">R</div>
+                <div id="plug_T" class="plug" onclick="plugClick('T')" onmouseenter="plugHover('T', true)"
+                    onmouseleave="plugHover('T', false)">T</div>
+                <div id="plug_Z" class="plug" onclick="plugClick('Z')" onmouseenter="plugHover('Z', true)"
+                    onmouseleave="plugHover('Z', false)">Z</div>
+                <div id="plug_U" class="plug" onclick="plugClick('U')" onmouseenter="plugHover('U', true)"
+                    onmouseleave="plugHover('U', false)">U</div>
+                <div id="plug_I" class="plug" onclick="plugClick('I')" onmouseenter="plugHover('I', true)"
+                    onmouseleave="plugHover('I', false)">I</div>
+                <div id="plug_O" class="plug" onclick="plugClick('O')" onmouseenter="plugHover('O', true)"
+                    onmouseleave="plugHover('O', false)">O</div>
+            </div>
+            <div class="plug-row">
+                <div id="plug_A" class="plug" onclick="plugClick('A')" onmouseenter="plugHover('A', true)"
+                    onmouseleave="plugHover('A', false)">A</div>
+                <div id="plug_S" class="plug" onclick="plugClick('S')" onmouseenter="plugHover('S', true)"
+                    onmouseleave="plugHover('S', false)">S</div>
+                <div id="plug_D" class="plug" onclick="plugClick('D')" onmouseenter="plugHover('D', true)"
+                    onmouseleave="plugHover('D', false)">D</div>
+                <div id="plug_F" class="plug" onclick="plugClick('F')" onmouseenter="plugHover('F', true)"
+                    onmouseleave="plugHover('F', false)">F</div>
+                <div id="plug_G" class="plug" onclick="plugClick('G')" onmouseenter="plugHover('G', true)"
+                    onmouseleave="plugHover('G', false)">G</div>
+                <div id="plug_H" class="plug" onclick="plugClick('H')" onmouseenter="plugHover('H', true)"
+                    onmouseleave="plugHover('H', false)">H</div>
+                <div id="plug_J" class="plug" onclick="plugClick('J')" onmouseenter="plugHover('J', true)"
+                    onmouseleave="plugHover('J', false)">J</div>
+                <div id="plug_K" class="plug" onclick="plugClick('K')" onmouseenter="plugHover('K', true)"
+                    onmouseleave="plugHover('K', false)">K</div>
+            </div>
+            <div class="plug-row">
+                <div id="plug_P" class="plug" onclick="plugClick('P')" onmouseenter="plugHover('P', true)"
+                    onmouseleave="plugHover('P', false)">P</div>
+                <div id="plug_Y" class="plug" onclick="plugClick('Y')" onmouseenter="plugHover('Y', true)"
+                    onmouseleave="plugHover('Y', false)">Y</div>
+                <div id="plug_X" class="plug" onclick="plugClick('X')" onmouseenter="plugHover('X', true)"
+                    onmouseleave="plugHover('X', false)">X</div>
+                <div id="plug_C" class="plug" onclick="plugClick('C')" onmouseenter="plugHover('C', true)"
+                    onmouseleave="plugHover('C', false)">C</div>
+                <div id="plug_V" class="plug" onclick="plugClick('V')" onmouseenter="plugHover('V', true)"
+                    onmouseleave="plugHover('V', false)">V</div>
+                <div id="plug_B" class="plug" onclick="plugClick('B')" onmouseenter="plugHover('B', true)"
+                    onmouseleave="plugHover('B', false)">B</div>
+                <div id="plug_N" class="plug" onclick="plugClick('N')" onmouseenter="plugHover('N', true)"
+                    onmouseleave="plugHover('N', false)">N</div>
+                <div id="plug_M" class="plug" onclick="plugClick('M')" onmouseenter="plugHover('M', true)"
+                    onmouseleave="plugHover('M', false)">M</div>
+                <div id="plug_L" class="plug" onclick="plugClick('L')" onmouseenter="plugHover('L', true)"
+                    onmouseleave="plugHover('L', false)">L</div>
+            </div>
+        </div>
+
+        <!-- 5. Output Log -->
+        <div class="message-container">
+            <div id="messageTape">|</div>
+            <button onclick="clearTape()" class="clear-btn">Clear</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
