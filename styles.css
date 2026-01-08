@@ -1,12 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
 :root {
     --bg-color: #000000;
     --text-color: #ffffff;
+    --sub-text: #888888;
+    --border-main: #ffffff;
+    --border-muted: #222222;
+    --key-active: #333333;
+    --lamp-active: #ffffff;
+    --lamp-inactive: #555555;
+    --plug-inactive: #555555;
+    --plug-hover: #777777;
     --accent-color: #ffffff;
-    --active-lamp: #ffffff;
-    --key-hover: #333333;
     --plug-connected: #00ff00;
     --plug-selected: #0088ff;
     --plug-highlight: #ff3333;
+}
+
+.light-theme {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --sub-text: #888888;
+    --border-main: #000000;
+    --border-muted: #eeeeee;
+    --key-active: #eeeeee;
+    --lamp-active: #000000;
+    --lamp-inactive: #bbbbbb;
+    --plug-inactive: #bbbbbb;
+    --plug-hover: #999999;
+    --accent-color: #000000;
+    --plug-connected: #006600;
+    --plug-selected: #004488;
+    --plug-highlight: #aa0000;
 }
 
 body {
@@ -27,7 +54,8 @@ body {
     text-align: center;
     padding-bottom: 30px;
     margin-bottom: 60px;
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid var(--border-muted);
+    position: relative;
 }
 
 .app-header h1 {
@@ -35,7 +63,25 @@ body {
     letter-spacing: 8px;
     font-weight: 400;
     margin: 0;
-    color: #fff;
+    color: var(--text-color);
+}
+
+.theme-toggle {
+    position: absolute;
+    right: 0;
+    bottom: 25px;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    line-height: 1;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
 }
 
 .content {
@@ -61,8 +107,8 @@ body {
 
 .rotor-column select {
     background: transparent;
-    color: #fff;
-    border: 1px solid #fff;
+    color: var(--text-color);
+    border: 1px solid var(--border-main);
     padding: 5px;
     font-family: inherit;
     font-size: 12px;
@@ -87,12 +133,12 @@ body {
 .label {
     font-size: 9px;
     text-transform: uppercase;
-    color: #888;
+    color: var(--sub-text);
 }
 
 .control-group button {
     background: transparent;
-    color: #fff;
+    color: var(--text-color);
     border: none;
     cursor: pointer;
     font-size: 18px;
@@ -112,15 +158,16 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    border: 1px solid #fff;
+    border: 1px solid var(--border-main);
+    color: var(--text-color);
 }
 
 .digit.small {
     width: 25px;
     height: 25px;
     font-size: 14px;
-    color: #888;
-    border: 1px solid #444;
+    color: var(--sub-text);
+    border: 1px solid var(--border-muted);
     border-radius: 50%;
 }
 
@@ -140,21 +187,21 @@ body {
 .lamp {
     width: 35px;
     height: 35px;
-    border: 1px solid #333;
+    border: 1px solid var(--lamp-inactive);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #333;
+    color: var(--lamp-inactive);
     font-weight: bold;
     font-size: 16px;
     transition: all 0.1s;
 }
 
 .lamp.active {
-    border-color: #fff;
-    color: #fff;
-    box-shadow: 0 0 10px #fff;
+    border-color: var(--lamp-active);
+    color: var(--lamp-active);
+    box-shadow: 0 0 10px var(--lamp-active);
 }
 
 /* 3. Keyboard Section */
@@ -167,23 +214,23 @@ body {
 .keyboard button {
     width: 40px;
     height: 40px;
-    border: 1px solid #fff;
+    border: 1px solid var(--border-main);
     border-radius: 50%;
     background: transparent;
-    color: #fff;
+    color: var(--text-color);
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.1s;
+    transition: background 0.1s, color 0.1s;
     outline: none;
 }
 
 .keyboard button:active,
 .keyboard button.pressed {
-    background: var(--key-hover);
+    background: var(--key-active);
 }
 
 /* 4. Plugboard Section */
@@ -196,7 +243,7 @@ body {
 .section-title {
     text-align: center;
     font-size: 10px;
-    color: #444;
+    color: var(--sub-text);
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -210,20 +257,20 @@ body {
 .plug {
     width: 28px;
     height: 28px;
-    border: 1px solid #222;
+    border: 1px solid var(--plug-inactive);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 12px;
-    color: #222;
+    color: var(--plug-inactive);
     cursor: pointer;
     transition: all 0.2s;
 }
 
 .plug:hover {
-    border-color: #444;
-    color: #444;
+    border-color: var(--plug-hover);
+    color: var(--plug-hover);
 }
 
 .plug-connected {
@@ -231,9 +278,17 @@ body {
     color: var(--plug-connected);
 }
 
+.light-theme .plug-connected {
+    border-width: 2px;
+}
+
 .plug-selected {
     border-color: var(--plug-selected);
     color: var(--plug-selected);
+}
+
+.light-theme .plug-selected {
+    border-width: 2px;
 }
 
 .plug-highlight-red {
@@ -241,9 +296,13 @@ body {
     color: var(--plug-highlight) !important;
 }
 
+.light-theme .plug-highlight-red {
+    border-width: 2px !important;
+}
+
 /* 5. Output Log Section */
 .message-container {
-    border-top: 1px solid #222;
+    border-top: 1px solid var(--border-muted);
     padding-top: 20px;
     display: flex;
     justify-content: space-between;
@@ -252,14 +311,14 @@ body {
 
 #messageTape {
     font-size: 18px;
-    color: #fff;
+    color: var(--text-color);
     letter-spacing: 2px;
 }
 
 .clear-btn {
     background: transparent;
-    color: #444;
-    border: 1px solid #444;
+    color: var(--sub-text);
+    border: 1px solid var(--border-muted);
     padding: 5px 10px;
     font-size: 10px;
     cursor: pointer;
@@ -268,6 +327,6 @@ body {
 }
 
 .clear-btn:hover {
-    color: #fff;
-    border-color: #fff;
+    color: var(--text-color);
+    border-color: var(--border-main);
 }

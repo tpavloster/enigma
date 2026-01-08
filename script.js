@@ -16,6 +16,31 @@ let state = [
 let plugboard = {}; // pairs storage
 let plugboardSelection = null;
 
+function saveState() {
+    const tape = document.getElementById('messageTape');
+    const data = {
+        state: state,
+        plugboard: plugboard,
+        tape: tape ? tape.innerText : "|",
+        theme: document.body.classList.contains('light-theme') ? 'light' : 'dark'
+    };
+    localStorage.setItem('enigma-full-state', JSON.stringify(data));
+}
+
+function loadState() {
+    const saved = localStorage.getItem('enigma-full-state');
+    if (saved) {
+        const data = JSON.parse(saved);
+        if (data.state) state = data.state;
+        if (data.plugboard) plugboard = data.plugboard;
+        if (data.theme === 'light') document.body.classList.add('light-theme');
+        if (data.tape) {
+            const tape = document.getElementById('messageTape');
+            if (tape) tape.innerText = data.tape;
+        }
+    }
+}
+
 const reflector = [24, 17, 20, 7, 16, 18, 11, 3, 15, 23, 13, 6, 14, 10, 12, 8, 4, 1, 5, 25, 2, 22, 21, 9, 0, 19];
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
@@ -51,6 +76,7 @@ function updateRotorUI() {
     document.getElementById('select2').value = state[2].rotorIdx;
 
     updatePlugboardUI();
+    saveState();
 }
 
 function plugClick(letter) {
@@ -77,6 +103,7 @@ function plugClick(letter) {
         plugboardSelection = null;
     }
     updatePlugboardUI();
+    saveState();
 }
 
 function plugHover(letter, isEntering) {
@@ -139,10 +166,23 @@ function keyPress(button) {
     const outputChar = plugboard[charBeforePlugOut] || charBeforePlugOut;
 
     const tape = document.getElementById('messageTape');
-    if (tape.innerText === "|") tape.innerText = "";
-    tape.innerText += outputChar;
+    let currentText = (tape.innerText === "|") ? "" : tape.innerText;
+
+    // Append the new character
+    currentText += outputChar;
+
+    // Count characters (ignoring existing spaces)
+    const charCount = currentText.replace(/\s/g, "").length;
+
+    // Add space after every 5th character
+    if (charCount > 0 && charCount % 5 === 0) {
+        currentText += " ";
+    }
+
+    tape.innerText = currentText;
 
     updateRotorUI();
+    saveState();
 
     const lamp = document.getElementById("_" + outputChar);
     if (lamp) lamp.classList.add('active');
@@ -184,8 +224,22 @@ function rotateRotors() {
     }
 }
 
+function toggleTheme() {
+    document.body.classList.toggle('light-theme');
+    updateThemeIcon();
+    saveState();
+}
+
+function updateThemeIcon() {
+    const btn = document.getElementById('themeToggle');
+    if (!btn) return;
+    const isLight = document.body.classList.contains('light-theme');
+    btn.innerText = isLight ? "☾" : "☼";
+}
+
 function clearTape() {
     document.getElementById('messageTape').innerText = "|";
+    saveState();
 }
 
 document.addEventListener('keydown', (e) => {
@@ -198,4 +252,8 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-window.onload = updateRotorUI;
+window.onload = () => {
+    loadState();
+    updateThemeIcon();
+    updateRotorUI();
+};
