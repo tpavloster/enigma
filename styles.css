@@ -59,8 +59,8 @@ body {
 }
 
 .app-header h1 {
-    font-size: 24px;
-    letter-spacing: 8px;
+    font-size: min(24px, 5vw);
+    letter-spacing: min(8px, 2vw);
     font-weight: 400;
     margin: 0;
     color: var(--text-color);
@@ -85,17 +85,19 @@ body {
 }
 
 .content {
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 40px;
 }
 
 /* 1. Rotors Section */
 .rotor-setup {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .rotor-column {
@@ -120,7 +122,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
 }
 
 .control-group {
@@ -181,7 +183,7 @@ body {
 .row {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 8px;
 }
 
 .lamp {
@@ -251,7 +253,7 @@ body {
 .plug-row {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 8px;
 }
 
 .plug {
@@ -329,4 +331,85 @@ body {
 .clear-btn:hover {
     color: var(--text-color);
     border-color: var(--border-main);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    .app-header {
+        margin-bottom: 30px;
+    }
+
+    .content {
+        gap: 30px;
+    }
+
+    .rotor-setup {
+        gap: 10px;
+    }
+
+    .digit {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+    }
+
+    .digit.small {
+        width: 20px;
+        height: 20px;
+        font-size: 11px;
+    }
+
+    .row,
+    .plug-row {
+        gap: 5px;
+    }
+
+    .lamp,
+    .keyboard button {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .plug {
+        width: 24px;
+        height: 24px;
+        font-size: 10px;
+    }
+
+    .control-group button {
+        opacity: 1;
+        font-size: 14px;
+    }
+
+    #messageTape {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 400px) {
+    .rotor-setup {
+        gap: 5px;
+    }
+
+    .control-row {
+        gap: 5px;
+    }
+
+    .lamp,
+    .keyboard button {
+        width: 25px;
+        height: 25px;
+        font-size: 12px;
+    }
+
+    .plug {
+        width: 20px;
+        height: 20px;
+        font-size: 9px;
+    }
 }
