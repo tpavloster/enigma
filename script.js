@@ -244,11 +244,11 @@ function clearTape() {
 
 function startDecipherEffect() {
     const titleEl = document.getElementById('heroTitle');
-    const subtitleEl = document.getElementById('heroSubtitle');
-    if (!titleEl || !subtitleEl) return;
+    const subtitle1 = document.getElementById('heroSubtitle1');
+    const subtitle2 = document.getElementById('heroSubtitle2');
+    if (!titleEl || !subtitle1 || !subtitle2) return;
 
     const targetWord = "ENIGMA";
-    const targetSubtitle = "HANDCRAFTING THE LEGEND";
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
     const intervalTime = 70;
     const initialDelay = 500;
@@ -278,17 +278,30 @@ function startDecipherEffect() {
 
             if (allLocked) {
                 clearInterval(interval);
-                startSubtitleEffect(subtitleEl, targetSubtitle);
+                // Start both parts simultaneously
+                let completed = 0;
+                const checkFinished = () => {
+                    completed++;
+                    if (completed === 2) {
+                        const arrow = document.querySelector('.scroll-arrow');
+                        const themeBtn = document.getElementById('themeToggle');
+                        if (arrow) arrow.classList.add('controls-visible');
+                        if (themeBtn) themeBtn.classList.add('controls-visible');
+                    }
+                };
+
+                startSubtitleEffect(subtitle1, "HANDCRAFTING", checkFinished);
+                startSubtitleEffect(subtitle2, "THE LEGEND", checkFinished);
             }
         }, intervalTime);
     }, initialDelay);
 }
 
-function startSubtitleEffect(element, target) {
+function startSubtitleEffect(element, target, callback) {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
     const intervalTime = 50;
-    const lockSpeed = 100; // Faster for the longer subtitle
-    const initialShuffle = 1000;
+    const lockSpeed = 100;
+    const initialShuffle = 500; // Shorter shuffle for split parts
     const startTime = Date.now();
 
     const interval = setInterval(() => {
@@ -310,11 +323,7 @@ function startSubtitleEffect(element, target) {
 
         if (allLocked) {
             clearInterval(interval);
-            // Show controls after subtitle is complete
-            const arrow = document.querySelector('.scroll-arrow');
-            const themeBtn = document.getElementById('themeToggle');
-            if (arrow) arrow.classList.add('controls-visible');
-            if (themeBtn) themeBtn.classList.add('controls-visible');
+            if (callback) callback();
         }
     }, intervalTime);
 }

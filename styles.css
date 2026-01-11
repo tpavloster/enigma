@@ -97,15 +97,23 @@ body {
     transition: opacity 1s ease-in;
 }
 
+.subtitle-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
 .hero-subtitle {
     font-size: 1.5rem;
     letter-spacing: 0.5rem;
     text-indent: 0.5rem;
     color: var(--sub-text);
-    margin-top: 20px;
-    height: 1.5rem;
+    min-height: 1.5rem;
     font-weight: 300;
     text-transform: uppercase;
+    margin: 0;
 }
 
 .scroll-arrow {
@@ -654,11 +662,48 @@ body {
 @media (max-width: 600px) {
     .hero-title {
         letter-spacing: 15px;
+        text-indent: 15px;
+    }
+
+    .subtitle-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        letter-spacing: 0.3rem;
+        text-indent: 0.3rem;
+        height: auto;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    .parallax-section,
+    .parallax-section-2 {
+        height: 40vh;
+        background-attachment: scroll;
+        background-position: center center;
     }
 
     .history-section,
-    .simulator-section {
+    .simulator-section,
+    .project-section {
         padding: 80px 15px;
+    }
+
+    .project-grid {
+        gap: 60px;
+    }
+
+    .project-item p {
+        font-size: 16px;
+    }
+
+    .project-content h2 {
+        font-size: 18px;
+        letter-spacing: 6px;
+        margin-bottom: 40px;
     }
 
     .history-text {
