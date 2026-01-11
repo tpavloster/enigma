@@ -244,14 +244,16 @@ function clearTape() {
 
 function startDecipherEffect() {
     const titleEl = document.getElementById('heroTitle');
-    if (!titleEl) return;
+    const subtitleEl = document.getElementById('heroSubtitle');
+    if (!titleEl || !subtitleEl) return;
 
     const targetWord = "ENIGMA";
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const targetSubtitle = "HANDCRAFTING THE LEGEND";
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
     const intervalTime = 70;
-    const initialDelay = 500; // 0.5s black screen
-    const lockSpeed = 250; // Lock each letter 250ms after the previous one
-    const initialShuffle = 1500; // Initial full shuffle duration before first lock
+    const initialDelay = 500;
+    const lockSpeed = 250;
+    const initialShuffle = 1500;
 
     setTimeout(() => {
         titleEl.classList.add('title-visible');
@@ -264,11 +266,10 @@ function startDecipherEffect() {
 
             for (let i = 0; i < targetWord.length; i++) {
                 const lockTime = initialShuffle + (i * lockSpeed);
-
                 if (elapsed >= lockTime) {
                     displayStr += targetWord[i];
                 } else {
-                    displayStr += chars[Math.floor(Math.random() * chars.length)];
+                    displayStr += chars[Math.floor(Math.random() * (chars.length - 1))]; // No spaces in main title
                     allLocked = false;
                 }
             }
@@ -277,15 +278,45 @@ function startDecipherEffect() {
 
             if (allLocked) {
                 clearInterval(interval);
-
-                // Show controls
-                const arrow = document.querySelector('.scroll-arrow');
-                const themeBtn = document.getElementById('themeToggle');
-                if (arrow) arrow.classList.add('controls-visible');
-                if (themeBtn) themeBtn.classList.add('controls-visible');
+                startSubtitleEffect(subtitleEl, targetSubtitle);
             }
         }, intervalTime);
     }, initialDelay);
+}
+
+function startSubtitleEffect(element, target) {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+    const intervalTime = 50;
+    const lockSpeed = 100; // Faster for the longer subtitle
+    const initialShuffle = 1000;
+    const startTime = Date.now();
+
+    const interval = setInterval(() => {
+        const elapsed = Date.now() - startTime;
+        let displayStr = "";
+        let allLocked = true;
+
+        for (let i = 0; i < target.length; i++) {
+            const lockTime = initialShuffle + (i * lockSpeed);
+            if (elapsed >= lockTime) {
+                displayStr += target[i];
+            } else {
+                displayStr += chars[Math.floor(Math.random() * chars.length)];
+                allLocked = false;
+            }
+        }
+
+        element.textContent = displayStr;
+
+        if (allLocked) {
+            clearInterval(interval);
+            // Show controls after subtitle is complete
+            const arrow = document.querySelector('.scroll-arrow');
+            const themeBtn = document.getElementById('themeToggle');
+            if (arrow) arrow.classList.add('controls-visible');
+            if (themeBtn) themeBtn.classList.add('controls-visible');
+        }
+    }, intervalTime);
 }
 
 document.addEventListener('keydown', (e) => {

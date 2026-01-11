@@ -85,6 +85,7 @@ body {
 .hero-title {
     font-size: min(120px, 15vw);
     letter-spacing: min(40px, 5vw);
+    text-indent: min(40px, 5vw);
     margin: 0;
     font-weight: 700;
     opacity: 0;
@@ -94,6 +95,17 @@ body {
 .title-visible {
     opacity: 1;
     transition: opacity 1s ease-in;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    letter-spacing: 0.5rem;
+    text-indent: 0.5rem;
+    color: var(--sub-text);
+    margin-top: 20px;
+    height: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
 }
 
 .scroll-arrow {
