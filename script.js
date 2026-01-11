@@ -242,6 +242,52 @@ function clearTape() {
     saveState();
 }
 
+function startDecipherEffect() {
+    const titleEl = document.getElementById('heroTitle');
+    if (!titleEl) return;
+
+    const targetWord = "ENIGMA";
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const intervalTime = 70;
+    const initialDelay = 500; // 0.5s black screen
+    const lockSpeed = 250; // Lock each letter 250ms after the previous one
+    const initialShuffle = 1500; // Initial full shuffle duration before first lock
+
+    setTimeout(() => {
+        titleEl.classList.add('title-visible');
+        const startTime = Date.now();
+
+        const interval = setInterval(() => {
+            const elapsed = Date.now() - startTime;
+            let displayStr = "";
+            let allLocked = true;
+
+            for (let i = 0; i < targetWord.length; i++) {
+                const lockTime = initialShuffle + (i * lockSpeed);
+
+                if (elapsed >= lockTime) {
+                    displayStr += targetWord[i];
+                } else {
+                    displayStr += chars[Math.floor(Math.random() * chars.length)];
+                    allLocked = false;
+                }
+            }
+
+            titleEl.textContent = displayStr;
+
+            if (allLocked) {
+                clearInterval(interval);
+
+                // Show controls
+                const arrow = document.querySelector('.scroll-arrow');
+                const themeBtn = document.getElementById('themeToggle');
+                if (arrow) arrow.classList.add('controls-visible');
+                if (themeBtn) themeBtn.classList.add('controls-visible');
+            }
+        }, intervalTime);
+    }, initialDelay);
+}
+
 document.addEventListener('keydown', (e) => {
     const key = e.key.toUpperCase();
     const button = document.getElementById(key);
@@ -256,4 +302,5 @@ window.onload = () => {
     loadState();
     updateThemeIcon();
     updateRotorUI();
+    startDecipherEffect();
 };
