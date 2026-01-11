@@ -197,7 +197,7 @@ body {
 /* Parallax Spacer Section */
 .parallax-section {
     height: 60vh;
-    background-image: url('assets/1.png');
+    background-image: url('assets/enigma.jpg');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
