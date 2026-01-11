@@ -79,6 +79,7 @@ body {
     position: relative;
     text-align: center;
     overflow: hidden;
+    background-color: var(--bg-color);
 }
 
 .hero-title {
@@ -149,6 +150,37 @@ body {
     60% {
         transform: translateX(-50%) translateY(-5px);
     }
+}
+
+/* Parallax Spacer Section */
+.parallax-section {
+    height: 60vh;
+    background-image: url('assets/1.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top: 1px solid var(--border-muted);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.parallax-section-2 {
+    height: 60vh;
+    background-image: url('assets/2.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top: 1px solid var(--border-muted);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .home-btn {
@@ -225,6 +257,70 @@ body {
 
 .history-text p {
     margin-bottom: 30px;
+}
+
+/* Project Section */
+.project-section {
+    min-height: 100vh;
+    padding: 120px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    border-top: 1px solid var(--border-muted);
+    position: relative;
+}
+
+.project-content {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.project-content h2 {
+    font-size: 24px;
+    letter-spacing: 12px;
+    color: var(--sub-text);
+    margin-bottom: 80px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.project-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.project-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+}
+
+.project-item p {
+    line-height: 1.8;
+    color: var(--text-color);
+    font-size: 18px;
+    max-width: 700px;
+}
+
+.project-img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border: 1px solid var(--border-muted);
+    filter: grayscale(0.5);
+    transition: all 0.5s ease;
+}
+
+.project-img:hover {
+    filter: grayscale(0);
+    border-color: var(--border-main);
+    transform: scale(1.02);
 }
 
 /* 3. Simulator Section */
