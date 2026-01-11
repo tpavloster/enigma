@@ -619,16 +619,16 @@ body {
 
 /* 4. Footer */
 .app-footer {
-    padding: 100px 20px 40px;
+    padding: 40px 20px 40px;
     text-align: center;
     border-top: 1px solid var(--border-muted);
 }
 
 .app-footer p {
-    font-size: 10px;
+    font-size: 14px;
     letter-spacing: 2px;
     color: var(--sub-text);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .footer-links {
@@ -640,7 +640,7 @@ body {
 .footer-links a {
     color: var(--sub-text);
     text-decoration: none;
-    font-size: 10px;
+    font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: color 0.2s;
