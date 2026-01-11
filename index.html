@@ -12,7 +12,12 @@
 </head>
 
 <body>
-    <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()">☼</button>
+    <div class="top-controls">
+        <div class="lang-switcher">
+            <button onclick="toggleLanguage()" id="langBtn" class="control-btn">EN</button>
+        </div>
+        <button id="themeToggle" class="theme-toggle control-btn" onclick="toggleTheme()">☼</button>
+    </div>
     <a href="#welcome" id="homeBtn" class="home-btn">
         <span>︽</span>
     </a>
@@ -35,13 +40,15 @@
     <!-- 2. History Section -->
     <section id="history" class="history-section">
         <div class="history-content">
-            <h2>THE MACHINE THAT CHANGED HISTORY</h2>
+            <h2 data-t-id="history-title">THE MACHINE THAT CHANGED HISTORY</h2>
             <div class="history-grid">
                 <div class="history-text">
-                    <p>Patented in 1918 by German engineer Arthur Scherbius, the Enigma machine was originally intended
+                    <p data-t-id="history-p1">Patented in 1918 by German engineer Arthur Scherbius, the Enigma machine
+                        was originally intended
                         for commercial cryptography. However, it soon became the cornerstone of military communications
                         for the German forces during World War II.</p>
-                    <p>Its complexity was unprecedented, utilizing a system of rotating wheels (rotors) to scramble
+                    <p data-t-id="history-p2">Its complexity was unprecedented, utilizing a system of rotating wheels
+                        (rotors) to scramble
                         messages into billions of potential configurations. It was considered "unbreakable" until the
                         monumental efforts of three Polish mathematicians, Marian Rejewski, Jerzy Różycki, and Henryk
                         Zygalski and later Alan Turing and his team at Bletchley Park
@@ -54,26 +61,27 @@
     <!-- Project Section -->
     <section id="my-project" class="project-section">
         <div class="project-content">
-            <h2>HANDCRAFTING THE LEGEND: MY PHYSICAL MODEL</h2>
+            <h2 data-t-id="project-title">HANDCRAFTING THE LEGEND: MY PHYSICAL MODEL</h2>
             <div class="project-grid">
                 <div class="project-item">
-                    <p>While many Enigma replicas exist across the globe, most rely on modern microchips or
-                        microcontrollers. I set out to build something different: a purely mechanical and electrical
-                        model that remains strictly faithful to the original engineering, crafted from wood and analog
-                        components.</p>
+                    <p data-t-id="project-p1">While many Enigma replicas exist across the globe, most rely on modern
+                        microchips or microcontrollers. I set out to build something different: a purely mechanical and
+                        electrical model that remains strictly faithful to the original engineering, crafted from wood
+                        and analog components.</p>
                     <img src="assets/1.jpeg" alt="Handcrafting process - Woodwork" class="project-img">
                 </div>
                 <div class="project-item">
-                    <p>There is no Arduino, Raspberry Pi, or any digital logic inside this machine. Every electrical
-                        path and rotor movement is entirely mechanical. Replicating this tactile logic required months
-                        of precision work, manually soldering every connection to mirror the authentic 1940s technology.
-                    </p>
+                    <p data-t-id="project-p2">There is no Arduino, Raspberry Pi, or any digital logic inside this
+                        machine. Every electrical path and rotor movement is entirely mechanical. Replicating this
+                        tactile logic required months of precision work, manually soldering every connection to mirror
+                        the authentic 1940s technology.</p>
                     <img src="assets/2.jpeg" alt="Electrical components and wiring" class="project-img">
                 </div>
                 <div class="project-item">
-                    <p>This journey was a labor of love, and today the physical model is fully operational and mimics
-                        the original machine's behavior perfectly. Below you will find a digital simulator as a tribute
-                        to that mechanical build—connecting the physical wood and wires to the modern screen.</p>
+                    <p data-t-id="project-p3">This journey was a labor of love, and today the physical model is fully
+                        operational and mimics the original machine's behavior perfectly. Below you will find a digital
+                        simulator as a tribute to that mechanical build—connecting the physical wood and wires to the
+                        modern screen.</p>
                 </div>
             </div>
         </div>
@@ -85,7 +93,7 @@
     <!-- 3. Simulator Section -->
     <section id="simulator" class="simulator-section">
         <header class="app-header">
-            <h2>ENIGMA CYPHER SIMULATOR</h2>
+            <h2 data-t-id="simulator-title">ENIGMA CYPHER SIMULATOR</h2>
             <div class="header-line"></div>
         </header>
         <div class="content">
@@ -295,18 +303,18 @@
             <!-- 5. Output Log -->
             <div class="message-container">
                 <div id="messageTape">|</div>
-                <button onclick="clearTape()" class="clear-btn">Clear</button>
+                <button onclick="clearTape()" class="clear-btn" data-t-id="clear-btn">Clear</button>
             </div>
     </section>
 
     <!-- 4. Footer -->
     <footer class="app-footer">
-        <p>WOODEN ENIGMA CIPHER MACHINE • HISTORICAL SIMULATOR</p>
+        <p data-t-id="footer-text">WOODEN ENIGMA CIPHER MACHINE • HISTORICAL SIMULATOR</p>
         <div class="footer-links">
-            <a href="#welcome">Home</a>
-            <a href="#history">History</a>
-            <a href="#my-project">Project</a>
-            <a href="#simulator">Simulator</a>
+            <a href="#welcome" data-t-id="link-home">Home</a>
+            <a href="#history" data-t-id="link-history">History</a>
+            <a href="#my-project" data-t-id="link-project">Project</a>
+            <a href="#simulator" data-t-id="link-simulator">Simulator</a>
         </div>
     </footer>
 

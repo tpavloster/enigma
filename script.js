@@ -1,3 +1,65 @@
+const translations = {
+    en: {
+        btn: "EN",
+        subtitle1: "HANDCRAFTING",
+        subtitle2: "THE LEGEND",
+        "history-title": "THE MACHINE THAT CHANGED HISTORY",
+        "history-p1": "Patented in 1918 by German engineer Arthur Scherbius, the Enigma machine was originally intended for commercial cryptography. However, it soon became the cornerstone of military communications for the German forces during World War II.",
+        "history-p2": "Its complexity was unprecedented, utilizing a system of rotating wheels (rotors) to scramble messages into billions of potential configurations. It was considered \"unbreakable\" until the monumental efforts of three Polish mathematicians, Marian Rejewski, Jerzy Różycki, and Henryk Zygalski and later Alan Turing and his team at Bletchley Park changed the course of the war.",
+        "project-title": "HANDCRAFTING THE LEGEND: MY PHYSICAL MODEL",
+        "project-p1": "While many Enigma replicas exist across the globe, most rely on modern microchips or microcontrollers. I set out to build something different: a purely mechanical and electrical model that remains strictly faithful to the original engineering, crafted from wood and analog components.",
+        "project-p2": "There is no Arduino, Raspberry Pi, or any digital logic inside this machine. Every electrical path and rotor movement is entirely mechanical. Replicating this tactile logic required months of precision work, manually soldering every connection to mirror the authentic 1940s technology.",
+        "project-p3": "This journey was a labor of love, and today the physical model is fully operational and mimics the original machine's behavior perfectly. Below you will find a digital simulator as a tribute to that mechanical build—connecting the physical wood and wires to the modern screen.",
+        "simulator-title": "ENIGMA CYPHER SIMULATOR",
+        "clear-btn": "Clear",
+        "footer-text": "WOODEN ENIGMA CIPHER MACHINE • HISTORICAL SIMULATOR",
+        "link-home": "Home",
+        "link-history": "History",
+        "link-project": "Project",
+        "link-simulator": "Simulator"
+    },
+    uk: {
+        btn: "UK",
+        subtitle1: "РУЧНА РОБОТА",
+        subtitle2: "НАД ЛЕГЕНДОЮ",
+        "history-title": "МАШИНА, ЩО ЗМІНИЛА ІСТОРІЮ",
+        "history-p1": "Запатентована в 1918 році німецьким інженером Артуром Шербіусом, машина «Енігма» спочатку призначалася для комерційної криптографії. Однак незабаром вона стала наріжним каменем військового зв'язку німецьких військ під час Другої світової війни.",
+        "history-p2": "Її складність була безпрецедентною. Вона використовувала систему обертових коліс (роторів) для шифрування повідомлень у мільярди потенційних конфігурацій. Вона вважалася «незламною», поки монументальні зусилля трьох польських математиків — Мар'яна Реєвського, Єжи Рожицького та Генрика Зигальського, а згодом Алана Т'юрінга та його команди в Блетчлі-Парку не змінили хід війни.",
+        "project-title": "РУЧНА РОБОТА НАД ЛЕГЕНДОЮ: МОЯ МЕХАНІЧНА МОДЕЛЬ",
+        "project-p1": "Хоча у світі існує багато реплік «Енігми», більшість із них базуються на сучасних мікрочіпах. Я ж поставив собі за мету створити дещо інше: суто механічну та електричну модель, що залишається суворо вірною оригінальній інженерії, виготовлену з дерева та аналогових компонентів.",
+        "project-p2": "Всередині цієї машини немає ні Arduino, ні Raspberry Pi, ні будь-якої іншої цифрової логіки. Кожен шлях електричного сигналу та рух ротора є повністю механічними. Відтворення цієї тактильної логіки вимагало місяців точної роботи, паяння кожного з’єднання вручну, щоб відобразити автентичні технології 1940-х років.",
+        "project-p3": "Ця подорож була справою всього життя, і сьогодні механічна модель повністю справна і бездоганно імітує поведінку оригінальної машини. Нижче ви знайдете цифровий симулятор як данину цій механічній конструкції — зв’язок справжнього дерева та дротів із сучасним екраном.",
+        "simulator-title": "СИМУЛЯТОР ШИФРУВАЛЬНИКА ЕНІГМИ",
+        "clear-btn": "Очистити",
+        "footer-text": "ДЕРЕВ'ЯНА МАШИНА ЕНІГМА • ІСТОРИЧНИЙ СИМУЛЯТОР",
+        "link-home": "Головна",
+        "link-history": "Історія",
+        "link-project": "Проект",
+        "link-simulator": "Симулятор"
+    },
+    pl: {
+        btn: "PL",
+        subtitle1: "RĘCZNIE TWORZONA",
+        subtitle2: "LEGENDA",
+        "history-title": "MASZYNA, KTÓRA ZMIENIŁA HISTORIĘ",
+        "history-p1": "Opatentowana w 1918 roku przez niemieckiego inżyniera Arthura Scherbiusa, maszyna Enigma była pierwotnie przeznaczona do celów komercyjnych. Jednak wkrótce stała się kamieniem węgielnym komunikacji wojskowej sił niemieckich podczas II wojny światowej.",
+        "history-p2": "Jej złożoność była bezprecedensowa, wykorzystywała system obracających się kół (wirników) do szyfrowania wiadomości w miliardy potencjalnych konfiguracji. Uważano ją za „nie do złamania”, dopóki monumentalny wysiłek trzech polskich matematyków: Mariana Rejewskiego, Jerzego Różyckiego i Henryka Zygalskiego, a później Alana Turinga i jego zespołu w Bletchley Park, nie zmienił biegu wojny.",
+        "project-title": "RĘCZNE TWORZENIE LEGENDY: MÓJ MODEL MECHANICZNY",
+        "project-p1": "Chociaż na całym świecie istnieje wiele replik Enigmy, większość z nich opiera się na nowoczesnych mikroprocesorach. Ja postanowiłem zbudować coś innego: czysto mechaniczny i elektryczny model, który pozostaje ściśle wierny oryginalnej inżynierii, wykonany z drewna i komponentów analogowych.",
+        "project-p2": "Wewnątrz tej maszyny nie ma Arduino, Raspberry Pi ani żadnej logiki cyfrowej. Każda ścieżka elektryczna i ruch wirnika są całkowicie mechaniczne. Odtworzenie tej taktylnej logiki wymagało miesięcy precyzyjnej pracy, ręcznego lutowania każdego połączenia, aby odzwierciedlić autentyczną technologię z lat 40. XX wieku.",
+        "project-p3": "Ta podróż była dziełem pasji i dziś model mechaniczny jest w pełni sprawny i idealnie naśladuje zachowanie oryginalnej maszyny. Poniżej znajduje się cyfrowy symulator jako hołd dla tej mechanicznej konstrukcji — łączący fizyczne drewno i przewody z nowoczesnym ekranem.",
+        "simulator-title": "SYMULATOR SZYFROWANIA ENIGMY",
+        "clear-btn": "Wyczyść",
+        "footer-text": "DREWNIANA MASZYNA ENIGMA • SYMULATOR HISTORYCZNY",
+        "link-home": "Strona Główna",
+        "link-history": "Historia",
+        "link-project": "Projekt",
+        "link-simulator": "Symulator"
+    }
+};
+
+let currentLang = 'en';
+
 // Historical Rotor Database
 const rotorInventory = [
     { name: "I", wiring: [4, 10, 12, 5, 11, 6, 3, 16, 21, 25, 13, 19, 14, 22, 24, 7, 23, 20, 18, 15, 0, 8, 1, 17, 2, 9], defaultTurnover: 16 }, // Q
@@ -22,7 +84,8 @@ function saveState() {
         state: state,
         plugboard: plugboard,
         tape: tape ? tape.innerText : "|",
-        theme: document.body.classList.contains('light-theme') ? 'light' : 'dark'
+        theme: document.body.classList.contains('light-theme') ? 'light' : 'dark',
+        lang: currentLang
     };
     localStorage.setItem('enigma-full-state', JSON.stringify(data));
 }
@@ -34,6 +97,10 @@ function loadState() {
         if (data.state) state = data.state;
         if (data.plugboard) plugboard = data.plugboard;
         if (data.theme === 'light') document.body.classList.add('light-theme');
+        if (data.lang) {
+            currentLang = data.lang;
+            updateLanguageUI();
+        }
         if (data.tape) {
             const tape = document.getElementById('messageTape');
             if (tape) tape.innerText = data.tape;
@@ -242,6 +309,30 @@ function clearTape() {
     saveState();
 }
 
+function toggleLanguage() {
+    const langs = ['en', 'uk', 'pl'];
+    let idx = langs.indexOf(currentLang);
+    currentLang = langs[(idx + 1) % langs.length];
+    updateLanguageUI();
+    saveState();
+}
+
+function updateLanguageUI() {
+    const btn = document.getElementById('langBtn');
+    if (btn) btn.innerText = translations[currentLang].btn;
+
+    // Update all elements with data-t-id
+    document.querySelectorAll('[data-t-id]').forEach(el => {
+        const id = el.getAttribute('data-t-id');
+        if (translations[currentLang][id]) {
+            el.innerText = translations[currentLang][id];
+        }
+    });
+
+    // We don't re-run the whole intro animation, but we update the subtitle targets
+    // so if it's currently animating, it picks up the new target.
+}
+
 function startDecipherEffect() {
     const titleEl = document.getElementById('heroTitle');
     const subtitle1 = document.getElementById('heroSubtitle1');
@@ -284,14 +375,14 @@ function startDecipherEffect() {
                     completed++;
                     if (completed === 2) {
                         const arrow = document.querySelector('.scroll-arrow');
-                        const themeBtn = document.getElementById('themeToggle');
+                        const topControls = document.querySelector('.top-controls');
                         if (arrow) arrow.classList.add('controls-visible');
-                        if (themeBtn) themeBtn.classList.add('controls-visible');
+                        if (topControls) topControls.classList.add('controls-visible');
                     }
                 };
 
-                startSubtitleEffect(subtitle1, "HANDCRAFTING", checkFinished);
-                startSubtitleEffect(subtitle2, "THE LEGEND", checkFinished);
+                startSubtitleEffect(subtitle1, translations[currentLang].subtitle1, checkFinished);
+                startSubtitleEffect(subtitle2, translations[currentLang].subtitle2, checkFinished);
             }
         }, intervalTime);
     }, initialDelay);
