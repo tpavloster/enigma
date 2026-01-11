@@ -304,3 +304,14 @@ window.onload = () => {
     updateRotorUI();
     startDecipherEffect();
 };
+
+window.onscroll = () => {
+    const homeBtn = document.getElementById('homeBtn');
+    if (!homeBtn) return;
+
+    if (window.scrollY > 300) {
+        homeBtn.classList.add('visible');
+    } else {
+        homeBtn.classList.remove('visible');
+    }
+};

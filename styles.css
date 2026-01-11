@@ -116,6 +116,12 @@ body {
     pointer-events: none;
 }
 
+.scroll-arrow span {
+    line-height: 1;
+    display: inline-block;
+    transform: translateY(11px);
+}
+
 .controls-visible {
     opacity: 1 !important;
     pointer-events: all !important;
@@ -143,6 +149,43 @@ body {
     60% {
         transform: translateX(-50%) translateY(-5px);
     }
+}
+
+.home-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid var(--text-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 24px;
+    transition: all 0.3s, opacity 0.5s;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.home-btn span {
+    line-height: 1;
+    display: inline-block;
+    transform: translateY(-2px);
+}
+
+.home-btn.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.home-btn:hover {
+    border-color: var(--border-main);
+    background: rgba(255, 255, 255, 0.05);
+    transform: scale(1.1);
 }
 
 /* 2. History Section */
