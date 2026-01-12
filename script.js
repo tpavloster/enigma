@@ -16,7 +16,15 @@ const translations = {
         "link-home": "Home",
         "link-history": "History",
         "link-project": "Project",
-        "link-simulator": "Simulator"
+        "link-simulator": "Simulator",
+        "link-instagram": "Instagram",
+        "link-contact": "Contact",
+        "contacts-title": "COMMUNICATIONS",
+        "contacts-p": "Want to know more about Enigma? Follow my Instagram or write me an email.",
+        "label-email": "EMAIL",
+        "label-github": "GITHUB",
+        "label-linkedin": "LINKEDIN",
+        "label-instagram": "INSTAGRAM"
     },
     uk: {
         btn: "UK",
@@ -35,7 +43,15 @@ const translations = {
         "link-home": "Головна",
         "link-history": "Історія",
         "link-project": "Проект",
-        "link-simulator": "Симулятор"
+        "link-simulator": "Симулятор",
+        "link-instagram": "Інстаграм",
+        "link-contact": "Зв'язок",
+        "contacts-title": "ЗВ'ЯЗОК",
+        "contacts-p": "Хочете дізнатися більше про Енігму? Підписуйтесь на мій Instagram або напишіть мені на пошту.",
+        "label-email": "ПОШТА",
+        "label-github": "GITHUB",
+        "label-linkedin": "LINKEDIN",
+        "label-instagram": "INSTAGRAM"
     },
     pl: {
         btn: "PL",
@@ -54,7 +70,15 @@ const translations = {
         "link-home": "Strona Główna",
         "link-history": "Historia",
         "link-project": "Projekt",
-        "link-simulator": "Symulator"
+        "link-simulator": "Symulator",
+        "link-instagram": "Instagram",
+        "link-contact": "Kontakt",
+        "contacts-title": "KOMUNIKACJA",
+        "contacts-p": "Chcesz dowiedzieć się więcej o Enigmie? Obserwuj mój Instagram lub napisz do mnie e-mail.",
+        "label-email": "EMAIL",
+        "label-github": "GITHUB",
+        "label-linkedin": "LINKEDIN",
+        "label-instagram": "INSTAGRAM"
     }
 };
 

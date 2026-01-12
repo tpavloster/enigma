@@ -648,6 +648,59 @@ body {
     border-color: var(--border-main);
 }
 
+/* Contacts Section */
+.contacts-section {
+    padding: 100px 20px;
+    background-color: var(--bg-color);
+    text-align: center;
+    border-top: 1px solid var(--border-muted);
+}
+
+.contacts-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contacts-content h2 {
+    font-size: min(32px, 8vw);
+    letter-spacing: 10px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.contacts-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--sub-text);
+    margin-bottom: 60px;
+}
+
+.contacts-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.contacts-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    transition: opacity 0.3s;
+}
+
+.contacts-links a:hover {
+    opacity: 0.5;
+}
+
+.contacts-links .separator {
+    color: var(--border-muted);
+    font-size: 14px;
+}
+
 /* 4. Footer */
 .app-footer {
     padding: 40px 20px 40px;
