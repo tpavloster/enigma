@@ -1,3 +1,7 @@
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
 const translations = {
     en: {
         btn: "EN",
@@ -454,6 +458,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 window.onload = () => {
+    window.scrollTo(0, 0);
     loadState();
     updateThemeIcon();
     updateRotorUI();
