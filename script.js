@@ -19,7 +19,7 @@ const translations = {
         "link-simulator": "Simulator",
         "link-instagram": "Instagram",
         "link-contact": "Contact",
-        "contacts-title": "COMMUNICATIONS",
+        "contacts-title": "CONTACTS",
         "contacts-p": "Want to know more about Enigma? Follow my Instagram or write me an email.",
         "label-email": "EMAIL",
         "label-github": "GITHUB",

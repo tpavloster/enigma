@@ -212,7 +212,7 @@ body {
 
 .parallax-section-2 {
     height: 60vh;
-    background-image: url('assets/2.png');
+    background-image: url('assets/4.jpg');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -830,6 +830,11 @@ body {
 
     #messageTape {
         font-size: 14px;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 15px 30px;
     }
 }
 
